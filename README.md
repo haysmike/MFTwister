@@ -10,7 +10,7 @@ This extension is intended to be very simple. It explicitly avoids navigation an
 
 - Endless encoder integration: Once assigned, each knob’s LED ring shows the control’s value.
 - Avoids unwanted MIDI CC messages when changing banks.
-- “Shifted” CCs: Pressing an encoder down makes it more responsive (lower resolution).
+- “Shifted” CCs: Pressing an encoder down makes it more precise.
 
 ## Upcoming Features
 

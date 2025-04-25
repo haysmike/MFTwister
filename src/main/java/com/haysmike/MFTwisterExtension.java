@@ -13,9 +13,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MFTwisterExtension extends ControllerExtension {
-    private static final int numCoarseMidiSteps = 128;
-    private static final int numFineMidiSteps = 256;
-    private static final int maxMidiValue = numCoarseMidiSteps - 1;
+    private static final int numControlStepsDefault = 128;
+    private static final int numControlStepsShifted = 256;
+    private static final int maxMidiValue = 127;
     private static final int numControls = 64;
 
     private static final Set<Integer> shiftedCcs = new HashSet<>();
@@ -55,7 +55,7 @@ public class MFTwisterExtension extends ControllerExtension {
                         shiftedCcs.remove(cc);
                     }
                 } else if (msg.isControlChange() && msg.getChannel() == 0 && cc < numControls && isValidIncrementalValue(value)) {
-                    int resolution = shiftedCcs.contains(cc) ? numCoarseMidiSteps : numFineMidiSteps;
+                    int resolution = shiftedCcs.contains(cc) ? numControlStepsShifted : numControlStepsDefault;
                     userControlBank.getControl(cc).inc(value - 64, resolution);
                 }
             }
