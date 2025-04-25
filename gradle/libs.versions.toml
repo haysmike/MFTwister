@@ -1,0 +1,5 @@
+[versions]
+bitwig-extension-api = "21"
+
+[libraries]
+bitwig-extension-api = { module = "com.bitwig:extension-api", version.ref = "bitwig-extension-api" }
