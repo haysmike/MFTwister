@@ -66,8 +66,7 @@ public class MFTwisterExtension extends ControllerExtension {
     public void exit() {}
 
     @Override
-    public void flush() {
-    }
+    public void flush() {}
 
     private boolean isValidIncrementalValue(int value) {
         return value == 63 || value == 65;
