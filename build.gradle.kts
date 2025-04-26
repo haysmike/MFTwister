@@ -1,5 +1,3 @@
-version = "0.1"
-
 plugins {
     `java-library`
 }
@@ -23,7 +21,7 @@ tasks {
     val bitwigExtensionsDir: String by project
     register<Copy>("install") {
         from("build/libs") {
-            include("mftwister-$version.jar")
+            include("mftwister.jar")
             rename {
                 "MFTwister.bwextension"
             }
