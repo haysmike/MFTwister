@@ -20,6 +20,10 @@ java {
 tasks {
     val bitwigExtensionsDir: String by project
     register<Copy>("install") {
+        group = "build"
+        description = "Installs Bitwig extension."
+        dependsOn(jar)
+
         from("build/libs") {
             include("mftwister.jar")
             rename {
@@ -27,6 +31,5 @@ tasks {
             }
         }
         into(bitwigExtensionsDir)
-        dependsOn(jar)
     }
 }
