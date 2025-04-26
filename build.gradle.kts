@@ -1,13 +1,12 @@
 plugins {
     `java-library`
     kotlin("jvm")
+    alias(libs.plugins.ktfmt.gradle)
 }
 
 repositories {
     mavenCentral()
-    maven {
-        url = uri("https://maven.bitwig.com")
-    }
+    maven { url = uri("https://maven.bitwig.com") }
 }
 
 dependencies {
@@ -24,14 +23,12 @@ tasks {
 
         from("build/libs") {
             include("mftwister.jar")
-            rename {
-                "MFTwister.bwextension"
-            }
+            rename { "MFTwister.bwextension" }
         }
         into(bitwigExtensionsDir)
     }
 }
 
-kotlin {
-    jvmToolchain(21)
-}
+kotlin { jvmToolchain(21) }
+
+ktfmt { kotlinLangStyle() }

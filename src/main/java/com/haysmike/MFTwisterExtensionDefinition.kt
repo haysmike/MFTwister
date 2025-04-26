@@ -8,7 +8,6 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 import kotlin.uuid.toJavaUuid
 
-
 class MFTwisterExtensionDefinition : ControllerExtensionDefinition() {
     override fun getName() = "MFTwister"
 
@@ -29,7 +28,10 @@ class MFTwisterExtensionDefinition : ControllerExtensionDefinition() {
 
     override fun getNumMidiOutPorts() = 1
 
-    override fun listAutoDetectionMidiPortNames(list: AutoDetectionMidiPortNamesList, platformType: PlatformType) {
+    override fun listAutoDetectionMidiPortNames(
+        list: AutoDetectionMidiPortNamesList,
+        platformType: PlatformType,
+    ) {
         list.add(arrayOf("Midi Fighter Twister"), arrayOf("Midi Fighter Twister"))
     }
 
