@@ -36,7 +36,7 @@ This extension is intended to be very simple. It explicitly avoids navigation an
 - Install [`asdf`](https://asdf-vm.com/) and its plugins for [Java](https://github.com/halcyon/asdf-java) and [Gradle](https://github.com/rfrancis/asdf-gradle).
 - Run `asdf install` in this directory.
 - Set `bitwigExtensionsDir` to your Bitwig Extensions directory (absolute path) in your `$GRADLE_USER_HOME/gradle.properties` file.
-- Run the `install` task via IntelliJ’s Gradle view or `./gradlew install`.
+- Run the `install` task via IntelliJ’s Gradle view (under Tasks → other) or run `./gradlew install` in your terminal.
 
 ## Inspiration and Credits
 

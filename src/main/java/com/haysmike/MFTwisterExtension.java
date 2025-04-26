@@ -1,7 +1,7 @@
 package com.haysmike;
 
 import com.bitwig.extension.api.util.midi.ShortMidiMessage;
-import com.bitwig.extension.callback.DoubleValueChangedCallback;
+import com.bitwig.extension.callback.IntegerValueChangedCallback;
 import com.bitwig.extension.callback.ShortMidiMessageReceivedCallback;
 import com.bitwig.extension.controller.ControllerExtension;
 import com.bitwig.extension.controller.api.ControllerHost;
@@ -15,7 +15,7 @@ import java.util.Set;
 public class MFTwisterExtension extends ControllerExtension {
     private static final int numControlStepsDefault = 128;
     private static final int numControlStepsShifted = 256;
-    private static final int maxMidiValue = 127;
+    private static final int midiRange = 128;
     private static final int numControls = 64;
 
     private static final Set<Integer> shiftedCcs = new HashSet<>();
@@ -35,10 +35,10 @@ public class MFTwisterExtension extends ControllerExtension {
             Parameter control = userControlBank.getControl(cc);
             String label = "CC " + cc;
             control.setLabel(label);
-            control.value().addValueObserver(new DoubleValueChangedCallback() {
+            control.value().addValueObserver(midiRange, new IntegerValueChangedCallback() {
                 @Override
-                public void valueChanged(double value) {
-                    midiOut.sendMidi(176, cc, (int) (value * maxMidiValue));
+                public void valueChanged(int value) {
+                    midiOut.sendMidi(176, cc, value);
                 }
             });
         }
