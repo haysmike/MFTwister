@@ -1,5 +1,6 @@
 plugins {
     `java-library`
+    kotlin("jvm")
 }
 
 repositories {
@@ -11,10 +12,7 @@ repositories {
 
 dependencies {
     api(libs.bitwig.extension.api)
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_21
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks {
@@ -32,4 +30,8 @@ tasks {
         }
         into(bitwigExtensionsDir)
     }
+}
+
+kotlin {
+    jvmToolchain(21)
 }
