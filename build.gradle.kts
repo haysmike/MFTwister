@@ -1,3 +1,5 @@
+version = "0.1"
+
 plugins {
     `java-library`
 }
@@ -13,19 +15,20 @@ dependencies {
     api(libs.bitwig.extension.api)
 }
 
-val bitwigExtensionsDir: String by project
-tasks.register<Copy>("install") {
-    from("build/libs") {
-        include("mftwister-0.1.jar")
-        rename {
-            "MFTwister.bwextension"
-        }
-    }
-    into(bitwigExtensionsDir)
-    dependsOn(tasks.jar)
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
 }
 
-group = "com.haysmike"
-version = "0.1"
-description = "MFTwister"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+tasks {
+    val bitwigExtensionsDir: String by project
+    register<Copy>("install") {
+        from("build/libs") {
+            include("mftwister-$version.jar")
+            rename {
+                "MFTwister.bwextension"
+            }
+        }
+        into(bitwigExtensionsDir)
+        dependsOn(jar)
+    }
+}
