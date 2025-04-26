@@ -18,11 +18,14 @@ class MFTwisterExtension(definition: MFTwisterExtensionDefinition, host: Control
 
     private val shiftedCcs: MutableSet<Int> = mutableSetOf()
 
-    private val userControlBank: UserControlBank = host.createUserControls(64)
-    private val midiOut: MidiOut = host.getMidiOutPort(0)
-    private val midiIn: MidiIn = host.getMidiInPort(0)
+    private lateinit var userControlBank: UserControlBank
+    private lateinit var midiOut: MidiOut
+    private lateinit var midiIn: MidiIn
 
     override fun init() {
+        userControlBank = host.createUserControls(64)
+        midiOut = host.getMidiOutPort(0)
+        midiIn = host.getMidiInPort(0)
         for (cc in 0..<numControls) {
             val control = userControlBank.getControl(cc)
             val label = "CC $cc"

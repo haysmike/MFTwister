@@ -1,6 +1,7 @@
 plugins {
     `java-library`
     kotlin("jvm")
+    alias(libs.plugins.shadow)
     alias(libs.plugins.ktfmt.gradle)
 }
 
@@ -11,7 +12,7 @@ repositories {
 
 dependencies {
     api(libs.bitwig.extension.api)
-    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("stdlib"))
 }
 
 tasks {
@@ -19,10 +20,10 @@ tasks {
     register<Copy>("install") {
         group = "build"
         description = "Installs Bitwig extension."
-        dependsOn(jar)
+        dependsOn(shadowJar)
 
         from("build/libs") {
-            include("mftwister.jar")
+            include("mftwister-all.jar")
             rename { "MFTwister.bwextension" }
         }
         into(bitwigExtensionsDir)
