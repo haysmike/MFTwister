@@ -1,6 +1,6 @@
 plugins {
     `java-library`
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.shadow)
     alias(libs.plugins.ktfmt.gradle)
 }
@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
     api(libs.bitwig.extension.api)
-    implementation(kotlin("stdlib"))
+    implementation(libs.kotlin.stdlib)
 }
 
 tasks {

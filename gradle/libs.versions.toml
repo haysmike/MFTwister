@@ -1,11 +1,14 @@
 [versions]
 bitwig-extension-api = "21"
+kotlin = "2.1.20"
 ktfmt-gradle = "0.22.0"
 shadow = "9.0.0-beta12"
 
 [libraries]
-bitwig-extension-api = { module = "com.bitwig:extension-api", version.ref = "bitwig-extension-api" }
+bitwig-extension-api = { group = "com.bitwig", name = "extension-api", version.ref = "bitwig-extension-api" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 
 [plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktfmt-gradle = { id = "com.ncorti.ktfmt.gradle", version.ref = "ktfmt-gradle" }
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
