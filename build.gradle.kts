@@ -16,6 +16,8 @@ dependencies {
 }
 
 tasks {
+    shadowJar { dependencies { exclude(dependency(libs.bitwig.extension.api)) } }
+
     val bitwigExtensionsDir: String by project
     register<Copy>("install") {
         group = "build"

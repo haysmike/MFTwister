@@ -1,7 +1,7 @@
 [versions]
 bitwig-extension-api = "21"
 ktfmt-gradle = "0.22.0"
-shadow = "8.3.6"
+shadow = "9.0.0-beta12"
 
 [libraries]
 bitwig-extension-api = { module = "com.bitwig:extension-api", version.ref = "bitwig-extension-api" }
