@@ -10,9 +10,6 @@ import java.util.UUID;
 public class MFTwisterExtensionDefinition extends ControllerExtensionDefinition {
     private static final UUID DRIVER_ID = UUID.fromString("dc337c96-9a72-47aa-9d60-b8f7766419bb");
 
-    public MFTwisterExtensionDefinition() {
-    }
-
     @Override
     public String getName() {
         return "MFTwister";
