@@ -55,7 +55,9 @@ public class MFTwisterExtension extends ControllerExtension {
           .addValueObserver(
               value ->
                   sendMidiCc(
-                          RGB_ANIMATION_OUTPUT_CHANNEL, cc, value ? RGB_MAX_BRIGHTNESS_VALUE : RGB_OFF_VALUE));
+                      RGB_ANIMATION_OUTPUT_CHANNEL,
+                      cc,
+                      value ? RGB_MAX_BRIGHTNESS_VALUE : RGB_OFF_VALUE));
 
       HardwareButton hardwareButton =
           hardwareSurface.createHardwareButton(String.format("Switch %02d", encoderNumber));
@@ -80,6 +82,7 @@ public class MFTwisterExtension extends ControllerExtension {
   public void exit() {
     for (int cc = 0; cc < NUM_ENCODERS; cc++) {
       sendMidiCc(RGB_ANIMATION_OUTPUT_CHANNEL, cc, RGB_MAX_BRIGHTNESS_VALUE);
+      sendMidiCc(INDICATOR_RING_OUTPUT_CHANNEL, cc, 0);
     }
   }
 
